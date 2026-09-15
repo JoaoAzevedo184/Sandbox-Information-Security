@@ -1,0 +1,23 @@
+O que e Spring Boot?
+
+Spring Boot e um projeto da Spring Source que teve seu lancamento em 2014 como uma ferramenta de Software Livre, o que significa que ele e mantido de maneira colaborativa, com o codigo disponivel para todas as pessoas que quiserem usar ou indicar alteracoes.
+
+Seu nascimento veio da necessidade de deixar o desenvolvimento de aplicacoes Spring mais simplificado. Sendo assim, para entendermos melhor sobre o Spring Boot, e importante compara-lo com seu predecessor, o Spring Framework.
+
+Este e um framework para desenvolvimento de aplicacoes Java que fornece recursos como Inversao de Controle (IoC), injecao de dependencias, container Spring, entre outros. Porem, para usar essa ferramenta precisamos de uma configuracao manual detalhada.
+
+Neste ponto o Spring Boot se destaca, pois surge como uma extensao do Spring Framework que simplifica o processo de configuracao e desenvolvimento, oferecendo configuracao automatica, starters de dependencias e servidores embutidos.
+
+Isso permite criar aplicacoes rapidamente exigindo o minimo de configuracao por parte de quem trabalha no projeto.
+
+Pensando na essencia do Spring Boot, podemos elencar os 3 principais recursos dele:
+
+Autoconfiguracao: aplicacoes Spring Boot, quando inicializadas, apresentam dependencias predefinidas, evitando configuracoes manuais. Assim, elas realizam a configuracao automatica de todo o ecossistema Spring do projeto, reduzindo erros humanos e acelerando o desenvolvimento.
+
+Abordagem opinativa: o Spring Boot seleciona e configura dependencias com base nas necessidades do projeto, utilizando os chamados Spring Starters, que nada mais sao que pacotes pre-configurados que ja vem com a dependencia ao ser instalada.
+
+Mais de 30 Spring Starters estao disponiveis, cobrindo diversos casos de uso com configuracoes padrao. Vao de configuracoes de banco de dados ate a parte de seguranca da aplicacao.
+
+Aplicativos independentes: e possivel criar aplicativos autonomos, que podem ser executados sem um servidor web externo, integrando um servidor da web durante o processo de inicializacao.
+
+Exemplos de tais aplicativos sao o Tomcat, Jetty, ou o Undertow.
