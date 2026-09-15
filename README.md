@@ -6,9 +6,13 @@ Sandbox de estudo da disciplina de **Segurança da Informação** (UNINASSAU, 6�
 
 ```text
 .
-├── Main.java              # Ponto de entrada — demo da cifra de Vigenère
-├── VigenereCipher.java     # Encrypt/decrypt (Vigenère)
-├── VigenereBreaker.java    # Ataque à cifra de Vigenère
+├── src/
+│   ├── Main.java              # Demo de cifragem/decifragem
+│   ├── VigenereCipher.java    # Encrypt/decrypt (Vigenère) — compartilhado
+│   └── VigenereBreaker.java   # Ataque à cifra de Vigenère
+├── data/
+│   ├── text.txt                # Texto cifrado (alvo do ataque)
+│   └── plaintext.txt           # Texto original, para conferência
 ├── docs/
 │   └── cifra-de-vigenere.md
 └── exercises/
@@ -20,8 +24,8 @@ Sandbox de estudo da disciplina de **Segurança da Informação** (UNINASSAU, 6�
 
 Lista completa e prazos em [`exercises/exercises.md`](exercises/exercises.md):
 
-1. Cifra de Vigenère (`VigenereCipher.java`)
-2. Ataque à cifra de Vigenère (`VigenereBreaker.java`)
+1. Cifra de Vigenère (`src/Main.java`)
+2. Ataque à cifra de Vigenère (`src/VigenereBreaker.java`)
 3. Ataque ao esquema One-Time Pad
 4. Colisões parciais em funções hash
 
@@ -32,9 +36,18 @@ Lista completa e prazos em [`exercises/exercises.md`](exercises/exercises.md):
 
 ## Como rodar
 
+Atividade 1 — cifra de Vigenère:
+
 ```bash
-javac Main.java VigenereCipher.java
-java Main
+javac -d out src/VigenereCipher.java src/Main.java
+java -cp out Main
+```
+
+Atividade 2 — ataque à cifra de Vigenère:
+
+```bash
+javac -d out src/VigenereCipher.java src/VigenereBreaker.java
+java -cp out VigenereBreaker data/text.txt
 ```
 
 ## Licença
