@@ -1,5 +1,18 @@
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
+        System.out.println();
+        System.out.println("=== Ataque à cifra de Vigenère ===");
+        String path = args.length > 0 ? args[0] : "data/text.txt";
+        VigenereBreaker.run(path);
+    }
+
+    /**
+     * Executa uma demonstração da cifra de Vigenère, cifrando e decifrando um texto com uma chave conhecida.
+     */
+    private static void runVigenereDemo() {
         String key = "chave";
         String texto = "Quero comer muito cuscuz e feijoada, mas tenho que me controlar porque estou de dieta.";
 
