@@ -7,12 +7,17 @@ Sandbox de estudo da disciplina de **Segurança da Informação** (UNINASSAU, 6�
 ```text
 .
 ├── src/
-│   ├── Main.java              # Demo de cifragem/decifragem
-│   ├── VigenereCipher.java    # Encrypt/decrypt (Vigenère) — compartilhado
-│   └── VigenereBreaker.java   # Ataque à cifra de Vigenère
+│   ├── Main.java                       # Ponto de entrada: dispara os ataques
+│   ├── VigenereCipher.java             # Encrypt/decrypt (Vigenère) — compartilhado
+│   ├── VigenereBreaker.java            # Ataque à cifra de Vigenère
+│   ├── OneTimePadCipher.java           # XOR (encrypt/decrypt) — compartilhado
+│   ├── OneTimePadChallengeGenerator.java  # Gera o desafio (7 msgs, mesma chave)
+│   └── OneTimePadBreaker.java          # Ataque many-time pad (chave reutilizada)
 ├── data/
-│   ├── text.txt                # Texto cifrado (alvo do ataque)
-│   └── plaintext.txt           # Texto original, para conferência
+│   ├── text.txt                # Texto cifrado com Vigenère (alvo do ataque)
+│   ├── plaintext.txt           # Texto original, para conferência
+│   ├── otp_texto.txt           # 7 mensagens cifradas com a mesma chave OTP
+│   └── otp_plaintext.txt       # As 7 mensagens originais, para conferência
 ├── docs/
 │   └── cifra-de-vigenere.md
 └── exercises/
@@ -26,7 +31,7 @@ Lista completa e prazos em [`exercises/exercises.md`](exercises/exercises.md):
 
 1. Cifra de Vigenère (`src/Main.java`)
 2. Ataque à cifra de Vigenère (`src/VigenereBreaker.java`, chamado por `Main`)
-3. Ataque ao esquema One-Time Pad
+3. Ataque ao esquema One-Time Pad (`src/OneTimePadBreaker.java`, chamado por `Main`)
 4. Colisões parciais em funções hash
 
 ## Guias
@@ -36,11 +41,18 @@ Lista completa e prazos em [`exercises/exercises.md`](exercises/exercises.md):
 
 ## Como rodar
 
-`Main` é o único ponto de entrada: roda a demo da cifra e, em seguida, o ataque de Vigenère sobre `data/text.txt` (ou o caminho passado como argumento).
+`Main` é o único ponto de entrada: roda o ataque de Vigenère sobre `data/text.txt` e, em seguida, o ataque ao One-Time Pad sobre `data/otp_texto.txt` (ou os caminhos passados como argumentos, nessa ordem).
 
 ```bash
-javac -d out src/VigenereCipher.java src/Main.java src/VigenereBreaker.java
-java -cp out Main [caminho-do-texto-cifrado]
+javac -d out src/VigenereCipher.java src/Main.java src/VigenereBreaker.java \
+    src/OneTimePadCipher.java src/OneTimePadBreaker.java src/OneTimePadChallengeGenerator.java
+java -cp out Main [caminho-vigenere] [caminho-otp]
+```
+
+`data/otp_texto.txt` já está versionado, mas para gerar um novo desafio (chave aleatória nova) rode:
+
+```bash
+java -cp out OneTimePadChallengeGenerator
 ```
 
 ## Licença

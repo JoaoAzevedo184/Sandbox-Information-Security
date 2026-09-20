@@ -1,0 +1,7 @@
+A confidencialidade so e garantida se a chave nunca for reutilizada.
+One time pad e perfeito na teoria mas fragil na pratica.
+Reusar a chave permite recuperar as mensagens originais sem forca bruta.
+Criptografia de fluxo tambem sofre com reuso de chave, assim como o OTP.
+A equipe de seguranca revisou o protocolo apos o incidente.
+Nunca envie duas mensagens distintas cifradas com a mesma chave.
+Este e o ultimo texto do conjunto usado no ataque ao esquema.

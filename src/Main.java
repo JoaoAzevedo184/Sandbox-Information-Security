@@ -4,9 +4,19 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         System.out.println();
+        System.out.println("=== Ataque ao esquema One-Time Pad (chave reutilizada) ===");
+        String otpPath = args.length > 1 ? args[1] : "data/otp_texto.txt";
+        OneTimePadBreaker.run(otpPath);
+    }
+
+    /**
+     * Executa o ataque à cifra de Vigenère, descobrindo a chave e decifrando o texto.
+     */
+    public static void runVigenereAtack(String[] args) throws IOException {
+        System.out.println();
         System.out.println("=== Ataque à cifra de Vigenère ===");
-        String path = args.length > 0 ? args[0] : "data/text.txt";
-        VigenereBreaker.run(path);
+        String vigenerePath = args.length > 0 ? args[0] : "data/text.txt";
+        VigenereBreaker.run(vigenerePath);
     }
 
     /**
